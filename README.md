@@ -64,7 +64,7 @@ This is a fully responsive personal portfolio website built using **HTML**, **CS
 
 ## 📬 Contact Me
 
-- 📧 **Email:** [nabihanasir8375@gmail.com](mailto:nabihanasir8375@gmail.com)  
+- 📧 **Email:** [nabihanasir514@gmail.com](mailto:nabihanasir8375@gmail.com)  
 - 💼 **LinkedIn:** [linkedin.com/in/nabiha-nasir-4a06a2349](https://linkedin.com/in/nabiha-nasir-4a06a2349)  
 - 📷 **Instagram:** [@nabihyy9845](https://www.instagram.com/nabihyy9845)  
 - 💻 **Live Site:** *(Add your GitHub Pages or Netlify/Vercel link here)*  
