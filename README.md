@@ -67,11 +67,7 @@ This is a fully responsive personal portfolio website built using **HTML**, **CS
 - 📧 **Email:** [nabihanasir514@gmail.com](mailto:nabihanasir8375@gmail.com)  
 - 💼 **LinkedIn:** [linkedin.com/in/nabiha-nasir-4a06a2349](https://linkedin.com/in/nabiha-nasir-4a06a2349)  
 - 📷 **Instagram:** [@nabihyy9845](https://www.instagram.com/nabihyy9845)  
-- 💻 **Live Site:** *(Add your GitHub Pages or Netlify/Vercel link here)*  
+ 
 
----
 
-## 📝 License
-
-This project is open-source and available under the [MIT License](LICENSE).
 
