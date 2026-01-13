@@ -24,50 +24,43 @@ const CertificatesSection = () => {
 
   const certificates = [
     {
-      title: 'Web Development Fundamentals',
-      issuer: 'Coursera',
+      title: 'Crash Course on Python',
+      issuer: 'Google (Coursera)',
       date: '2024',
-      category: 'Web Dev',
+      category: 'Programming',
       color: 'from-primary to-purple-glow',
     },
     {
-      title: 'Python for Everybody',
-      issuer: 'Coursera',
-      date: '2024',
-      category: 'Programming',
+      title: 'OCI 2025 AI Foundation Associate',
+      issuer: 'Oracle',
+      date: '2025',
+      category: 'Cloud & AI',
       color: 'from-purple-glow to-purple-soft',
     },
     {
-      title: 'Data Structures & Algorithms',
-      issuer: 'Udemy',
+      title: 'Introduction to Software Engineering',
+      issuer: 'IBM',
       date: '2024',
-      category: 'Programming',
+      category: 'Software Dev',
       color: 'from-purple-soft to-primary',
     },
     {
-      title: 'Introduction to Git and GitHub',
+      title: 'Foundations of UX Design',
       issuer: 'Google',
       date: '2024',
-      category: 'Tools',
+      category: 'Design',
       color: 'from-primary via-purple-glow to-purple-soft',
     },
     {
-      title: 'Responsive Web Design',
-      issuer: 'freeCodeCamp',
-      date: '2023',
-      category: 'Web Dev',
-      color: 'from-purple-glow via-purple-soft to-primary',
-    },
-    {
-      title: 'JavaScript Algorithms',
-      issuer: 'freeCodeCamp',
+      title: 'Introduction to Python',
+      issuer: 'DataCamp',
       date: '2024',
       category: 'Programming',
-      color: 'from-purple-soft via-primary to-purple-glow',
+      color: 'from-purple-glow via-purple-soft to-primary',
     },
   ];
 
-  const categories = ['All', 'Programming', 'Web Dev', 'Tools'];
+  const categories = ['All', 'Programming', 'Cloud & AI', 'Software Dev', 'Design'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredCertificates = activeCategory === 'All' 
