@@ -52,11 +52,11 @@ const HeroSection = () => {
       {/* Subtle Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-24">
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-24">
           
           {/* Left Side - Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center lg:text-left order-2 lg:order-1 lg:pl-8">
             
             {/* ICPC Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 mb-8 animate-fade-in">
@@ -146,7 +146,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side - Photo */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in-up delay-200">
+          <div className="flex justify-center lg:justify-start order-1 lg:order-2 animate-fade-in-up delay-200 lg:pr-8">
             <div className="relative">
               {/* Outer glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-purple-400 rounded-full blur-2xl opacity-40 scale-110 animate-pulse" />
