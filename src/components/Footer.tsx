@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/nabihanasir', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/nabihanasir514', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/nabiha-nasir-4a06a2349', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:nabiha.nasir@giki.edu.pk', label: 'Email' },
   ];
