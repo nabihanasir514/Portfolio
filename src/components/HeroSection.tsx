@@ -57,7 +57,7 @@ const HeroSection = () => {
           </div>
 
           <div className="flex items-center justify-center gap-6 animate-fade-in-up delay-500">
-            <a href="https://github.com/nabihanasir" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group">
+            <a href="https://github.com/nabihanasir514" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group">
               <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
             <a href="https://www.linkedin.com/in/nabiha-nasir-4a06a2349" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group">

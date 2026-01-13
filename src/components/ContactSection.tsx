@@ -44,7 +44,7 @@ const ContactSection = () => {
   };
 
   const contactInfo = [{ icon: Mail, label: 'Email', value: 'nabiha.nasir@giki.edu.pk' }, { icon: MapPin, label: 'Location', value: 'GIKI, Topi, Pakistan' }];
-  const socialLinks = [{ icon: Github, href: 'https://github.com/nabihanasir', label: 'GitHub' }, { icon: Linkedin, href: 'https://www.linkedin.com/in/nabiha-nasir-4a06a2349', label: 'LinkedIn' }, { icon: Mail, href: 'mailto:nabiha.nasir@giki.edu.pk', label: 'Email' }];
+  const socialLinks = [{ icon: Github, href: 'https://github.com/nabihanasir514', label: 'GitHub' }, { icon: Linkedin, href: 'https://www.linkedin.com/in/nabiha-nasir-4a06a2349', label: 'LinkedIn' }, { icon: Mail, href: 'mailto:nabiha.nasir@giki.edu.pk', label: 'Email' }];
 
   return (
     <section id="contact" ref={sectionRef} className="py-24 relative overflow-hidden">
