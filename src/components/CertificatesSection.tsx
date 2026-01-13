@@ -29,6 +29,7 @@ const CertificatesSection = () => {
       date: '2024',
       category: 'Programming',
       color: 'from-primary to-purple-glow',
+      link: 'https://www.coursera.org/account/accomplishments/verify/08DL1WW7TCYM',
     },
     {
       title: 'OCI 2025 AI Foundation Associate',
@@ -36,6 +37,7 @@ const CertificatesSection = () => {
       date: '2025',
       category: 'Cloud & AI',
       color: 'from-purple-glow to-purple-soft',
+      link: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=A32CFF374FB96109E8FE4E3A98532B17ABB70B47DD7BE202A2375D51D84EED3C',
     },
     {
       title: 'Introduction to Software Engineering',
@@ -43,6 +45,7 @@ const CertificatesSection = () => {
       date: '2024',
       category: 'Software Dev',
       color: 'from-purple-soft to-primary',
+      link: '/certificates/Into_to_Software_Engineering.pdf',
     },
     {
       title: 'Foundations of UX Design',
@@ -50,6 +53,7 @@ const CertificatesSection = () => {
       date: '2024',
       category: 'Design',
       color: 'from-primary via-purple-glow to-purple-soft',
+      link: '/certificates/Foundations_of_UX_Design.pdf',
     },
     {
       title: 'Introduction to Python',
@@ -57,6 +61,7 @@ const CertificatesSection = () => {
       date: '2024',
       category: 'Programming',
       color: 'from-purple-glow via-purple-soft to-primary',
+      link: '/certificates/Introduction_to_python.pdf',
     },
   ];
 
@@ -139,10 +144,15 @@ const CertificatesSection = () => {
                   </span>
                 </div>
 
-                <button className="flex items-center gap-2 text-sm text-primary hover:underline">
+                <a 
+                  href={cert.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-primary hover:underline"
+                >
                   <ExternalLink className="w-4 h-4" />
                   View Certificate
-                </button>
+                </a>
               </div>
             </div>
           ))}
