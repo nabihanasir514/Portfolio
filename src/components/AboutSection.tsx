@@ -13,9 +13,9 @@ const AboutSection = () => {
   }, []);
 
   const highlights = [
-    { icon: Code, label: 'Clean Code', description: 'Writing efficient & maintainable code' },
-    { icon: Lightbulb, label: 'Problem Solver', description: 'Analytical approach to challenges' },
-    { icon: Target, label: 'Goal-Oriented', description: 'Focused on delivering results' },
+    { icon: Code, label: 'DSA Expert', description: 'Strong foundation in Data Structures & Algorithms' },
+    { icon: Lightbulb, label: 'OOP Proficient', description: 'Solid grasp of Object-Oriented Programming' },
+    { icon: Target, label: 'ICPC Competitor', description: '5th Place in ICPC Asia Topi 2026' },
     { icon: Users, label: 'Team Player', description: 'Collaborative & communicative' },
   ];
 
@@ -32,12 +32,12 @@ const AboutSection = () => {
               <div className="text-center">
                 <h3 className="text-2xl font-display font-bold mb-2">Nabiha Nasir</h3>
                 <p className="text-primary font-medium">Software Engineering Student</p>
-                <p className="text-sm text-muted-foreground mt-1">GIKI - Second Year</p>
+                <p className="text-sm text-muted-foreground mt-1">GIKI - Second Year (2024-2028)</p>
               </div>
               <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-border">
-                <div className="text-center"><p className="text-2xl font-bold gradient-text">2nd</p><p className="text-xs text-muted-foreground">Year</p></div>
-                <div className="text-center"><p className="text-2xl font-bold gradient-text">10+</p><p className="text-xs text-muted-foreground">Projects</p></div>
-                <div className="text-center"><p className="text-2xl font-bold gradient-text">5+</p><p className="text-xs text-muted-foreground">Certificates</p></div>
+                <div className="text-center"><p className="text-2xl font-bold gradient-text">5th</p><p className="text-xs text-muted-foreground">ICPC Rank</p></div>
+                <div className="text-center"><p className="text-2xl font-bold gradient-text">5+</p><p className="text-xs text-muted-foreground">Projects</p></div>
+                <div className="text-center"><p className="text-2xl font-bold gradient-text">7+</p><p className="text-xs text-muted-foreground">Certificates</p></div>
               </div>
             </div>
           </div>
@@ -45,8 +45,9 @@ const AboutSection = () => {
             <span className="text-primary font-medium mb-4 block">About Me</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Passionate About <span className="gradient-text">Technology</span></h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
-              <p>Hi! I'm <span className="text-foreground font-semibold">Nabiha Nasir</span>, a second-year Software Engineering student at <span className="text-primary font-medium">Ghulam Ishaq Khan Institute (GIKI)</span>.</p>
-              <p>I'm passionate about leveraging technology to solve real-world problems. My journey in software engineering has equipped me with strong foundations in programming, data structures, algorithms, and software development.</p>
+              <p>Hi! I'm <span className="text-foreground font-semibold">Nabiha Nasir</span>, a second-year Software Engineering student at <span className="text-primary font-medium">Ghulam Ishaq Khan Institute (GIKI)</span> (2024-2028).</p>
+              <p>I have a <span className="text-foreground font-medium">strong background in Data Structures & Algorithms (DSA)</span> and <span className="text-foreground font-medium">Object-Oriented Programming (OOP)</span>. Currently, I'm expanding my skills by learning <span className="text-primary">Database Management Systems</span>.</p>
+              <p>As an <span className="text-yellow-400 font-medium">ICPC competitor</span> who secured 5th place in Asia Topi Preliminary 2026, I thrive on solving complex problems and building efficient solutions.</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((item, index) => (
