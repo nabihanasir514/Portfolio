@@ -91,8 +91,7 @@ const HeroSection = () => {
 
             {/* University */}
             <p className="text-muted-foreground text-lg mb-6 animate-fade-in-up delay-300">
-              Software Engineering @ <span className="text-foreground font-semibold">GIKI</span>
-              <span className="text-muted-foreground/60 ml-2">(2024 – 2028)</span>
+              Software Engineer <span className="text-foreground font-semibold">Second Year</span> at <span className="text-primary font-semibold">GIKI</span>
             </p>
 
             {/* Description */}
@@ -144,23 +143,26 @@ const HeroSection = () => {
           {/* Right Side - Photo */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in-up delay-200">
             <div className="relative">
-              {/* Glow behind image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/20 rounded-3xl blur-3xl scale-90" />
+              {/* Outer glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-purple-400 rounded-full blur-2xl opacity-40 scale-110 animate-glow-pulse" />
               
-              {/* Image Container */}
-              <div className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-[360px] lg:h-[440px] rounded-3xl overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10">
-                <img 
-                  src={profileImage}
-                  alt="Nabiha Nasir"
-                  className="w-full h-full object-cover object-top"
-                />
-                {/* Gradient overlay at bottom */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
+              {/* Spinning ring */}
+              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/30 animate-[spin_20s_linear_infinite]" />
+              
+              {/* Purple gradient border */}
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-purple-400 shadow-2xl shadow-primary/30">
+                {/* Inner container */}
+                <div className="w-full h-full rounded-full overflow-hidden bg-background">
+                  <img 
+                    src={profileImage}
+                    alt="Nabiha Nasir"
+                    className="w-full h-full object-cover object-top scale-110"
+                  />
+                </div>
               </div>
 
-              {/* Decorative corners */}
-              <div className="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl" />
-              <div className="absolute -bottom-3 -left-3 w-20 h-20 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl" />
+              {/* Shine effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
