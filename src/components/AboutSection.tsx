@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code, Lightbulb, Target, Users } from 'lucide-react';
+import profilePhoto from '@/assets/nabiha-profile.jpeg';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,10 +26,8 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <div className="glass-card rounded-3xl p-8 relative overflow-hidden">
-              <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary via-purple-glow to-purple-soft p-1 mb-6">
-                <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                  <span className="text-5xl font-display font-bold gradient-text">NN</span>
-                </div>
+              <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary via-purple-glow to-purple-soft p-1 mb-6 overflow-hidden">
+                <img src={profilePhoto} alt="Nabiha Nasir" className="w-full h-full rounded-full object-cover object-top" />
               </div>
               <div className="text-center">
                 <h3 className="text-2xl font-display font-bold mb-2">Nabiha Nasir</h3>
