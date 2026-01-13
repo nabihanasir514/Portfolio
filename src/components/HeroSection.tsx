@@ -94,17 +94,6 @@ const HeroSection = () => {
               <span className="text-foreground font-semibold">Second Year</span> at <span className="text-primary font-semibold">GIKI</span>
             </p>
 
-            {/* Skills Tags */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8 animate-fade-in-up delay-400">
-              {['C++', 'Python', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'Git', 'GitHub', 'VS Code'].map((skill) => (
-                <span 
-                  key={skill}
-                  className="px-3 py-1.5 text-sm font-medium rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 animate-fade-in-up delay-500">
