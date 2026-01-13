@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github, Folder } from 'lucide-react';
+import { ExternalLink, Github, Folder, FileText, Trophy } from 'lucide-react';
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +12,16 @@ const ProjectsSection = () => {
   }, []);
 
   const projects = [
+    { 
+      title: 'Pulse Chain GIKI', 
+      description: 'Comprehensive semester project with full documentation. Secured highest marks and A grade for exceptional work.', 
+      technologies: ['Documentation', 'System Design', 'A Grade'], 
+      image: 'from-yellow-500 via-primary to-purple-glow', 
+      docs: '/projects/PULSE_CHAIN_GIKI.pdf',
+      semester: 'Semester Project',
+      featured: true,
+      badge: 'A Grade ⭐'
+    },
     { 
       title: 'SWOT-LINK', 
       description: 'Strategic analysis tool for comprehensive SWOT (Strengths, Weaknesses, Opportunities, Threats) assessment and visualization.', 
@@ -65,19 +75,29 @@ const ProjectsSection = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div key={project.title} className={`group glass-card rounded-2xl overflow-hidden ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: `${index * 100}ms` }}>
+            <div key={project.title} className={`group glass-card rounded-2xl overflow-hidden ${project.featured ? 'border-yellow-500/30 ring-1 ring-yellow-500/20' : ''} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: `${index * 100}ms` }}>
               <div className={`h-48 bg-gradient-to-br ${project.image} relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                <Folder className="absolute top-4 left-4 w-8 h-8 text-white/80" />
+                {project.featured ? (
+                  <Trophy className="absolute top-4 left-4 w-8 h-8 text-yellow-300" />
+                ) : (
+                  <Folder className="absolute top-4 left-4 w-8 h-8 text-white/80" />
+                )}
+                {project.badge && (
+                  <span className="absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full bg-yellow-500 text-black">
+                    {project.badge}
+                  </span>
+                )}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-black/50 backdrop-blur-sm hover:bg-primary transition-colors"><Github className="w-5 h-5 text-white" /></a>}
+                  {project.docs && <a href={project.docs} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-black/50 backdrop-blur-sm hover:bg-yellow-500 transition-colors"><FileText className="w-5 h-5 text-white" /></a>}
                   {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-black/50 backdrop-blur-sm hover:bg-primary transition-colors"><ExternalLink className="w-5 h-5 text-white" /></a>}
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-display font-semibold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+                <h3 className={`text-xl font-display font-semibold mb-2 transition-colors ${project.featured ? 'text-yellow-400 group-hover:text-yellow-300' : 'group-hover:text-primary'}`}>{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.description}</p>
-                <div className="flex flex-wrap gap-2">{project.technologies.map((tech) => (<span key={tech} className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">{tech}</span>))}</div>
+                <div className="flex flex-wrap gap-2">{project.technologies.map((tech) => (<span key={tech} className={`px-3 py-1 text-xs rounded-full ${project.featured ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' : 'bg-primary/10 text-primary border border-primary/20'}`}>{tech}</span>))}</div>
               </div>
             </div>
           ))}
