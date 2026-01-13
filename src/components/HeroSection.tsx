@@ -1,5 +1,6 @@
 import { ArrowDown, Github, Linkedin, Mail, Download, Trophy } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import profileImage from '@/assets/nabiha-profile-edited.png';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -41,10 +42,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-background">
       {/* Gradient Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/15 rounded-full blur-[150px] -translate-y-1/2" />
+        <div className="absolute top-0 left-1/4 w-[800px] h-[600px] bg-primary/15 rounded-full blur-[150px] -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-glow/10 rounded-full blur-[120px] translate-y-1/3" />
       </div>
 
@@ -52,89 +53,115 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-24">
           
-          {/* ICPC Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-10 animate-fade-in">
-            <Trophy className="w-4 h-4 text-amber-400" />
-            <span className="text-sm font-medium text-amber-300">ICPC Asia Topi 2026 • 5th Place</span>
-          </div>
+          {/* Left Side - Content */}
+          <div className="text-center lg:text-left order-2 lg:order-1">
+            
+            {/* ICPC Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 mb-8 animate-fade-in">
+              <Trophy className="w-4 h-4 text-amber-400" />
+              <span className="text-sm font-medium text-amber-300">ICPC Asia Topi 2026 • 5th Place</span>
+            </div>
 
-          {/* Typing Name */}
-          <div className="mb-6 animate-fade-in-up delay-100">
-            <p className="text-muted-foreground text-xl mb-4">Hello, I'm</p>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black tracking-tight">
-              <span className="bg-gradient-to-r from-primary via-purple-400 to-purple-300 bg-clip-text text-transparent">
-                {displayText}
-              </span>
-              <span className="animate-pulse text-primary">|</span>
-            </h1>
-          </div>
+            {/* Typing Name */}
+            <div className="mb-6 animate-fade-in-up delay-100">
+              <p className="text-muted-foreground text-xl mb-4">Hello, I am</p>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-black tracking-tight">
+                <span className="bg-gradient-to-r from-primary via-purple-400 to-purple-300 bg-clip-text text-transparent">
+                  {displayText}
+                </span>
+                <span className="animate-pulse text-primary">|</span>
+              </h1>
+            </div>
 
-          {/* Role Carousel */}
-          <div className="h-10 overflow-hidden mb-8 animate-fade-in-up delay-200">
-            <div 
-              className="transition-transform duration-500 ease-out"
-              style={{ transform: `translateY(-${currentRole * 40}px)` }}
-            >
-              {roles.map((role, i) => (
-                <p key={i} className="h-10 flex items-center justify-center text-xl md:text-2xl text-muted-foreground">
-                  <span className="text-primary font-medium">{role}</span>
-                </p>
+            {/* Role Carousel */}
+            <div className="h-10 overflow-hidden mb-6 animate-fade-in-up delay-200">
+              <div 
+                className="transition-transform duration-500 ease-out"
+                style={{ transform: `translateY(-${currentRole * 40}px)` }}
+              >
+                {roles.map((role, i) => (
+                  <p key={i} className="h-10 flex items-center justify-center lg:justify-start text-xl text-primary font-medium">
+                    {role}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* University */}
+            <p className="text-muted-foreground text-lg mb-6 animate-fade-in-up delay-300">
+              Software Engineering @ <span className="text-foreground font-semibold">GIKI</span>
+              <span className="text-muted-foreground/60 ml-2">(2024 – 2028)</span>
+            </p>
+
+            {/* Description */}
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 animate-fade-in-up delay-400">
+              Strong foundation in <span className="text-foreground font-medium">DSA</span>, 
+              <span className="text-foreground font-medium"> OOP</span>, and 
+              <span className="text-foreground font-medium"> competitive programming</span>.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 animate-fade-in-up delay-500">
+              <button 
+                onClick={scrollToProjects}
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold text-primary-foreground bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
+              >
+                View My Work
+                <ArrowDown className="w-4 h-4 -rotate-90" />
+              </button>
+              <a 
+                href="/resume.pdf"
+                download="Nabiha_Nasir_CV.pdf"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center lg:justify-start gap-4 animate-fade-in-up delay-600">
+              {[
+                { icon: Github, href: 'https://github.com/nabihanasir514', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/nabiha-nasir-4a06a2349', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:u2024514@giki.edu.pk', label: 'Email' },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.label !== 'Email' ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+                >
+                  <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
               ))}
             </div>
           </div>
 
-          {/* University */}
-          <p className="text-muted-foreground text-lg mb-8 animate-fade-in-up delay-300">
-            Software Engineering @ <span className="text-foreground font-semibold">GIKI</span>
-            <span className="text-muted-foreground/60 ml-2">(2024 – 2028)</span>
-          </p>
+          {/* Right Side - Photo */}
+          <div className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in-up delay-200">
+            <div className="relative">
+              {/* Glow behind image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/20 rounded-3xl blur-3xl scale-90" />
+              
+              {/* Image Container */}
+              <div className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-[360px] lg:h-[440px] rounded-3xl overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10">
+                <img 
+                  src={profileImage}
+                  alt="Nabiha Nasir"
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
 
-          {/* Description */}
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto mb-12 animate-fade-in-up delay-400">
-            Strong foundation in <span className="text-foreground font-medium">DSA</span>, 
-            <span className="text-foreground font-medium"> OOP</span>, and 
-            <span className="text-foreground font-medium"> competitive programming</span>. 
-            Currently learning Database Management Systems.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-fade-in-up delay-500">
-            <button 
-              onClick={scrollToProjects}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold text-primary-foreground bg-gradient-to-r from-primary to-purple-500 hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
-            >
-              View My Work
-              <ArrowDown className="w-4 h-4 -rotate-90" />
-            </button>
-            <a 
-              href="/resume.pdf"
-              download="Nabiha_Nasir_CV.pdf"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              <Download className="w-4 h-4" />
-              Download CV
-            </a>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-4 animate-fade-in-up delay-600">
-            {[
-              { icon: Github, href: 'https://github.com/nabihanasir514', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://www.linkedin.com/in/nabiha-nasir-4a06a2349', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:u2024514@giki.edu.pk', label: 'Email' },
-            ].map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.label !== 'Email' ? '_blank' : undefined}
-                rel="noopener noreferrer"
-                className="p-3 rounded-xl border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-              >
-                <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            ))}
+              {/* Decorative corners */}
+              <div className="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl" />
+              <div className="absolute -bottom-3 -left-3 w-20 h-20 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl" />
+            </div>
           </div>
         </div>
       </div>
