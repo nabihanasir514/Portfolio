@@ -144,15 +144,22 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in-up delay-200">
             <div className="relative">
               {/* Outer glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-purple-400 rounded-full blur-2xl opacity-40 scale-110 animate-glow-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-purple-400 rounded-full blur-2xl opacity-40 scale-110 animate-pulse" />
               
-              {/* Spinning ring */}
-              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/30 animate-[spin_20s_linear_infinite]" />
+              {/* Animated orbiting ring */}
+              <div className="absolute -inset-6 rounded-full border-2 border-transparent animate-[spin_8s_linear_infinite]">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-lg shadow-primary/50" />
+              </div>
               
-              {/* Purple gradient border */}
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-purple-400 shadow-2xl shadow-primary/30">
-                {/* Inner container */}
-                <div className="w-full h-full rounded-full overflow-hidden bg-background">
+              {/* Second orbiting ring - opposite direction */}
+              <div className="absolute -inset-8 rounded-full border-2 border-transparent animate-[spin_12s_linear_infinite_reverse]">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50" />
+              </div>
+              
+              {/* Moving gradient border */}
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1 shadow-2xl shadow-primary/30 animate-[spin_6s_linear_infinite]" style={{ background: 'conic-gradient(from 0deg, hsl(var(--primary)), hsl(271 91% 65%), hsl(var(--primary)), transparent, hsl(var(--primary)))' }}>
+                {/* Inner container - counter rotate to keep image still */}
+                <div className="w-full h-full rounded-full overflow-hidden bg-background animate-[spin_6s_linear_infinite_reverse]">
                   <img 
                     src={profileImage}
                     alt="Nabiha Nasir"
@@ -161,8 +168,15 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Shine effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+              {/* Shine effect that moves */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none animate-[spin_4s_linear_infinite]" />
+              
+              {/* Badge at bottom */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-background/90 backdrop-blur-sm border border-primary/30 rounded-full shadow-lg">
+                <span className="text-sm font-semibold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
+                  Software Engineer @ GIKI
+                </span>
+              </div>
             </div>
           </div>
         </div>
