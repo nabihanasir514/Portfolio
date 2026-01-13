@@ -11,9 +11,9 @@ const SkillsSection = () => {
   }, []);
 
   const skillCategories = [
-    { title: 'Programming Languages', skills: [{ name: 'Python', level: 85 }, { name: 'C++', level: 80 }, { name: 'Java', level: 75 }, { name: 'JavaScript', level: 70 }] },
-    { title: 'Web Development', skills: [{ name: 'HTML/CSS', level: 85 }, { name: 'React', level: 65 }, { name: 'Node.js', level: 60 }, { name: 'Tailwind CSS', level: 70 }] },
-    { title: 'Databases & Tools', skills: [{ name: 'MySQL', level: 75 }, { name: 'MongoDB', level: 65 }, { name: 'Git/GitHub', level: 80 }, { name: 'VS Code', level: 90 }] },
+    { title: 'Programming Languages', skills: [{ name: 'C++', level: 85 }, { name: 'Python', level: 85 }, { name: 'JavaScript', level: 75 }, { name: 'Java', level: 70 }] },
+    { title: 'Web Development', skills: [{ name: 'HTML', level: 90 }, { name: 'CSS', level: 85 }, { name: 'React', level: 65 }, { name: 'Tailwind CSS', level: 70 }] },
+    { title: 'Databases & Tools', skills: [{ name: 'MySQL', level: 80 }, { name: 'Git', level: 85 }, { name: 'GitHub', level: 85 }, { name: 'VS Code', level: 90 }] },
     { title: 'Core Concepts', skills: [{ name: 'Data Structures', level: 80 }, { name: 'Algorithms', level: 75 }, { name: 'OOP', level: 85 }, { name: 'Problem Solving', level: 80 }] },
   ];
 
