@@ -49,10 +49,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Made with Love */}
-          <p className="text-xs text-muted-foreground flex items-center gap-1">
-            Made with <Heart className="w-3 h-3 text-primary fill-primary" /> using React & Tailwind
-          </p>
         </div>
       </div>
     </footer>
