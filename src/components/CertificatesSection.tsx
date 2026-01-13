@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Award, ExternalLink, Calendar } from 'lucide-react';
+import { Award, ExternalLink, Calendar, Trophy } from 'lucide-react';
 
 const CertificatesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,6 +23,25 @@ const CertificatesSection = () => {
   }, []);
 
   const certificates = [
+    {
+      title: 'ICPC Asia Topi Preliminary 2026',
+      issuer: 'ICPC',
+      date: '2026',
+      category: 'Competition',
+      color: 'from-yellow-500 via-primary to-purple-glow',
+      link: '/certificates/ICPC_Asia_Topi_Place_5.pdf',
+      featured: true,
+      badge: '5th Place',
+    },
+    {
+      title: 'ICPC Participant Certificate',
+      issuer: 'ICPC Foundation',
+      date: '2026',
+      category: 'Competition',
+      color: 'from-yellow-500 to-primary',
+      link: '/certificates/ICPC_Nabiha_Nasir.pdf',
+      featured: true,
+    },
     {
       title: 'Crash Course on Python',
       issuer: 'Google (Coursera)',
@@ -65,7 +84,7 @@ const CertificatesSection = () => {
     },
   ];
 
-  const categories = ['All', 'Programming', 'Cloud & AI', 'Software Dev', 'Design'];
+  const categories = ['All', 'Competition', 'Programming', 'Cloud & AI', 'Software Dev', 'Design'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredCertificates = activeCategory === 'All' 
@@ -112,32 +131,45 @@ const CertificatesSection = () => {
           {filteredCertificates.map((cert, index) => (
             <div
               key={cert.title}
-              className={`group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 ${
-                isVisible ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
+              className={`group glass-card rounded-2xl overflow-hidden transition-all duration-300 ${
+                cert.featured ? 'border-yellow-500/30 hover:border-yellow-500/50 ring-1 ring-yellow-500/20' : 'hover:border-primary/30'
+              } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
               {/* Certificate Header */}
               <div className={`h-24 bg-gradient-to-r ${cert.color} relative`}>
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Award className="w-12 h-12 text-white/80" />
+                  {cert.featured ? (
+                    <Trophy className="w-12 h-12 text-yellow-300" />
+                  ) : (
+                    <Award className="w-12 h-12 text-white/80" />
+                  )}
                 </div>
                 
                 {/* Category Badge */}
                 <span className="absolute top-3 right-3 px-3 py-1 text-xs rounded-full bg-black/30 backdrop-blur-sm text-white">
                   {cert.category}
                 </span>
+
+                {/* Achievement Badge */}
+                {cert.badge && (
+                  <span className="absolute top-3 left-3 px-3 py-1 text-xs font-bold rounded-full bg-yellow-500 text-black">
+                    🏆 {cert.badge}
+                  </span>
+                )}
               </div>
 
               {/* Certificate Content */}
               <div className="p-6">
-                <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h3 className={`text-lg font-display font-semibold mb-2 transition-colors ${
+                  cert.featured ? 'text-yellow-400 group-hover:text-yellow-300' : 'group-hover:text-primary'
+                }`}>
                   {cert.title}
                 </h3>
                 
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                  <span className="font-medium text-purple-soft">{cert.issuer}</span>
+                  <span className={`font-medium ${cert.featured ? 'text-yellow-500/80' : 'text-purple-soft'}`}>{cert.issuer}</span>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {cert.date}
