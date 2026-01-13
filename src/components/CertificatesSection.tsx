@@ -15,10 +15,7 @@ const CertificatesSection = () => {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -84,38 +81,54 @@ const CertificatesSection = () => {
     },
   ];
 
-  const categories = ['All', 'Competition', 'Programming', 'Cloud & AI', 'Software Dev', 'Design'];
+  const categories = [
+    'All',
+    'Competition',
+    'Programming',
+    'Cloud & AI',
+    'Software Dev',
+    'Design',
+  ];
+
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const filteredCertificates = activeCategory === 'All' 
-    ? certificates 
-    : certificates.filter(cert => cert.category === activeCategory);
+  const filteredCertificates =
+    activeCategory === 'All'
+      ? certificates
+      : certificates.filter((cert) => cert.category === activeCategory);
 
   return (
-    <section id="certificates" ref={sectionRef} className="py-24 relative overflow-hidden">
+    <section
+      id="certificates"
+      ref={sectionRef}
+      className="py-24 relative overflow-hidden"
+    >
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-1/4 h-1/3 bg-purple-glow/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Heading */}
         <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <span className="text-primary font-medium mb-4 block">Achievements</span>
+          <span className="text-primary font-medium mb-4 block">
+            Achievements
+          </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Certificates & <span className="gradient-text">Awards</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Certifications and credentials that validate my skills and commitment 
+            Certifications and credentials that validate my skills and commitment
             to continuous learning.
           </p>
         </div>
 
-        {/* Category Filters */}
+        {/* Filters */}
         <div className={`flex flex-wrap justify-center gap-3 mb-12 ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 activeCategory === category
                   ? 'bg-primary text-white shadow-lg shadow-primary/30'
                   : 'bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-foreground'
@@ -126,17 +139,19 @@ const CertificatesSection = () => {
           ))}
         </div>
 
-        {/* Certificates Grid */}
+        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCertificates.map((cert, index) => (
             <div
               key={cert.title}
-              className={`group glass-card rounded-2xl overflow-hidden transition-all duration-300 ${
-                cert.featured ? 'border-yellow-500/30 hover:border-yellow-500/50 ring-1 ring-yellow-500/20' : 'hover:border-primary/30'
+              className={`group glass-card rounded-2xl overflow-hidden transition-all ${
+                cert.featured
+                  ? 'border-yellow-500/30 hover:border-yellow-500/50 ring-1 ring-yellow-500/20'
+                  : 'hover:border-primary/30'
               } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
-              {/* Certificate Header */}
+              {/* Header */}
               <div className={`h-24 bg-gradient-to-r ${cert.color} relative`}>
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -146,13 +161,11 @@ const CertificatesSection = () => {
                     <Award className="w-12 h-12 text-white/80" />
                   )}
                 </div>
-                
-                {/* Category Badge */}
-                <span className="absolute top-3 right-3 px-3 py-1 text-xs rounded-full bg-black/30 backdrop-blur-sm text-white">
+
+                <span className="absolute top-3 right-3 px-3 py-1 text-xs rounded-full bg-black/30 text-white">
                   {cert.category}
                 </span>
 
-                {/* Achievement Badge */}
                 {cert.badge && (
                   <span className="absolute top-3 left-3 px-3 py-1 text-xs font-bold rounded-full bg-yellow-500 text-black">
                     🏆 {cert.badge}
@@ -160,25 +173,27 @@ const CertificatesSection = () => {
                 )}
               </div>
 
-              {/* Certificate Content */}
+              {/* Content */}
               <div className="p-6">
-                <h3 className={`text-lg font-display font-semibold mb-2 transition-colors ${
-                  cert.featured ? 'text-yellow-400 group-hover:text-yellow-300' : 'group-hover:text-primary'
+                <h3 className={`text-lg font-semibold mb-2 ${
+                  cert.featured
+                    ? 'text-yellow-400 group-hover:text-yellow-300'
+                    : 'group-hover:text-primary'
                 }`}>
                   {cert.title}
                 </h3>
-                
+
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                  <span className={`font-medium ${cert.featured ? 'text-yellow-500/80' : 'text-purple-soft'}`}>{cert.issuer}</span>
+                  <span className="font-medium">{cert.issuer}</span>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {cert.date}
                   </span>
                 </div>
 
-                <a 
-                  href={cert.link} 
-                  target="_blank" 
+                <a
+                  href={cert.link}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-primary hover:underline"
                 >
