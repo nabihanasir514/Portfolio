@@ -13,6 +13,14 @@ const ProjectsSection = () => {
 
   const projects = [
     { 
+      title: 'SWOT-LINK', 
+      description: 'Strategic analysis tool for comprehensive SWOT (Strengths, Weaknesses, Opportunities, Threats) assessment and visualization.', 
+      technologies: ['C++', 'Analysis', 'Data Management'], 
+      image: 'from-purple-soft via-primary to-purple-glow', 
+      github: 'https://github.com/nabihanasir514/SWOT-LINK',
+      semester: 'Project'
+    },
+    { 
       title: 'Intru-Watch', 
       description: 'An intrusion detection system built as a DSA project, implementing efficient data structures and algorithms for security monitoring.', 
       technologies: ['C++', 'DSA', 'Algorithms'], 
