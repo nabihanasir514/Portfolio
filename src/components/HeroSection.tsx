@@ -90,16 +90,21 @@ const HeroSection = () => {
             </div>
 
             {/* University */}
-            <p className="text-muted-foreground text-lg mb-6 animate-fade-in-up delay-300">
-              Software Engineer <span className="text-foreground font-semibold">Second Year</span> at <span className="text-primary font-semibold">GIKI</span>
+            <p className="text-muted-foreground text-lg mb-4 animate-fade-in-up delay-300">
+              <span className="text-foreground font-semibold">Second Year</span> at <span className="text-primary font-semibold">GIKI</span>
             </p>
 
-            {/* Description */}
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 animate-fade-in-up delay-400">
-              Strong foundation in <span className="text-foreground font-medium">DSA</span>, 
-              <span className="text-foreground font-medium"> OOP</span>, and 
-              <span className="text-foreground font-medium"> competitive programming</span>.
-            </p>
+            {/* Skills Tags */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8 animate-fade-in-up delay-400">
+              {['C++', 'Python', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'Git', 'GitHub', 'VS Code'].map((skill) => (
+                <span 
+                  key={skill}
+                  className="px-3 py-1.5 text-sm font-medium rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 animate-fade-in-up delay-500">
@@ -174,7 +179,7 @@ const HeroSection = () => {
               {/* Badge at bottom */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-background/90 backdrop-blur-sm border border-primary/30 rounded-full shadow-lg">
                 <span className="text-sm font-semibold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
-                  Software Engineer @ GIKI
+                  Frontend Developer | Finding Internship
                 </span>
               </div>
             </div>
