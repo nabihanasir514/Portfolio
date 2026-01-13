@@ -12,12 +12,38 @@ const ProjectsSection = () => {
   }, []);
 
   const projects = [
-    { title: 'Student Management System', description: 'A comprehensive system for managing student records and grades using OOP principles.', technologies: ['C++', 'OOP', 'File Handling'], image: 'from-primary to-purple-glow', github: '#' },
-    { title: 'Personal Portfolio Website', description: 'Modern and responsive portfolio website showcasing projects and skills.', technologies: ['React', 'Tailwind CSS', 'JavaScript'], image: 'from-purple-glow to-purple-soft', github: '#', live: '#' },
-    { title: 'Weather Application', description: 'Real-time weather app that fetches data from API and displays forecasts.', technologies: ['JavaScript', 'API', 'HTML/CSS'], image: 'from-purple-soft to-primary', github: '#', live: '#' },
-    { title: 'Library Database System', description: 'Database management system for library with CRUD operations.', technologies: ['Python', 'MySQL', 'Tkinter'], image: 'from-primary via-purple-glow to-purple-soft', github: '#' },
-    { title: 'Calculator App', description: 'Scientific calculator with advanced mathematical operations.', technologies: ['Java', 'Swing', 'OOP'], image: 'from-purple-glow via-purple-soft to-primary', github: '#' },
-    { title: 'To-Do List Application', description: 'Task management app with categories and local storage.', technologies: ['JavaScript', 'HTML/CSS', 'LocalStorage'], image: 'from-purple-soft via-primary to-purple-glow', github: '#', live: '#' },
+    { 
+      title: 'Intru-Watch', 
+      description: 'An intrusion detection system built as a DSA project, implementing efficient data structures and algorithms for security monitoring.', 
+      technologies: ['C++', 'DSA', 'Algorithms'], 
+      image: 'from-primary to-purple-glow', 
+      github: 'https://github.com/nabihanasir514/Intru-Watch',
+      semester: '3rd Semester'
+    },
+    { 
+      title: 'Study Group Scheduler', 
+      description: 'A collaborative academic platform to help university students connect, form study groups, and share resources seamlessly. Built using OOP principles.', 
+      technologies: ['C++', 'OOP', 'File Handling'], 
+      image: 'from-purple-glow to-purple-soft', 
+      github: 'https://github.com/nabihanasir514/Study-Group-Scheduler-System',
+      semester: '2nd Semester'
+    },
+    { 
+      title: 'Hospital Management System', 
+      description: 'Console-based system managing staff records, patient details, appointments, inventory tracking, and ward/bed allocations.', 
+      technologies: ['C++', 'Structures', 'Arrays'], 
+      image: 'from-purple-soft to-primary', 
+      github: 'https://github.com/nabihanasir514/Hospital-Management-System',
+      semester: '1st Semester'
+    },
+    { 
+      title: 'Personal Portfolio', 
+      description: 'Modern and responsive portfolio website showcasing projects and skills with elegant dark theme.', 
+      technologies: ['React', 'Tailwind CSS', 'TypeScript'], 
+      image: 'from-primary via-purple-glow to-purple-soft', 
+      github: 'https://github.com/nabihanasir514',
+      live: '#'
+    },
   ];
 
   return (
