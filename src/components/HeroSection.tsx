@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Twitter, Download } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -62,6 +62,14 @@ const HeroSection = () => {
             >
               Get In Touch
             </button>
+            <a 
+              href="/resume.pdf"
+              download="Alex_Chen_Resume.pdf"
+              className="px-8 py-4 rounded-xl font-semibold border border-primary/50 bg-primary/10 hover:bg-primary/20 transition-all duration-300 flex items-center gap-2 group"
+            >
+              <Download className="w-5 h-5 group-hover:animate-bounce" />
+              Resume
+            </a>
           </div>
 
           {/* Social Links */}
