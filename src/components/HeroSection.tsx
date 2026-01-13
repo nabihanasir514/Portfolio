@@ -146,7 +146,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side - Photo */}
-          <div className="flex justify-center lg:justify-start order-1 lg:order-2 animate-fade-in-up delay-200 lg:pr-8">
+          <div className="flex justify-center lg:justify-center order-1 lg:order-2 animate-fade-in-up delay-200 lg:pl-12">
             <div className="relative">
               {/* Outer glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-purple-400 rounded-full blur-2xl opacity-40 scale-110 animate-pulse" />
