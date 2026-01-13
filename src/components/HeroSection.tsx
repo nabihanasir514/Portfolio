@@ -1,39 +1,32 @@
-import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles, Code2, Terminal } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Download, Trophy, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import profileImage from '@/assets/nabiha-profile-edited.png';
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const roles = [
     'Software Engineer',
-    'DSA Enthusiast',
+    'DSA Enthusiast', 
     'ICPC Competitor',
     'Problem Solver',
   ];
 
   useEffect(() => {
-    const currentText = roles[currentRole];
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayText.length < currentText.length) {
-          setDisplayText(currentText.slice(0, displayText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        if (displayText.length > 0) {
-          setDisplayText(displayText.slice(0, -1));
-        } else {
-          setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, isDeleting ? 50 : 100);
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentRole, roles]);
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -44,127 +37,189 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Mesh Gradient Background */}
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-background to-background" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.15),transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(168,85,247,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-purple-950/20" />
+        
+        {/* Animated Orbs */}
+        <div 
+          className="absolute w-[600px] h-[600px] rounded-full opacity-30 blur-[100px] transition-all duration-1000"
+          style={{
+            background: 'radial-gradient(circle, hsl(263 90% 60%), transparent)',
+            left: `${mousePosition.x * 0.02}px`,
+            top: `${mousePosition.y * 0.02}px`,
+          }}
+        />
+        <div 
+          className="absolute w-[400px] h-[400px] rounded-full opacity-20 blur-[80px] right-0 bottom-0 transition-all duration-1000"
+          style={{
+            background: 'radial-gradient(circle, hsl(280 90% 65%), transparent)',
+            right: `${mousePosition.x * -0.01}px`,
+            bottom: `${mousePosition.y * -0.01}px`,
+          }}
+        />
       </div>
-      
-      {/* Floating Geometric Shapes */}
-      <div className="absolute top-20 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 animate-float" />
-      <div className="absolute top-40 right-20 w-16 h-16 border border-purple-glow/20 rounded-full animate-float" style={{ animationDelay: '-2s' }} />
-      <div className="absolute bottom-32 left-20 w-12 h-12 bg-primary/10 rounded-lg rotate-45 animate-float" style={{ animationDelay: '-4s' }} />
-      <div className="absolute bottom-40 right-32 w-24 h-24 border border-purple-soft/20 rounded-full animate-float" style={{ animationDelay: '-1s' }} />
-      
-      {/* Code Decoration */}
-      <div className="absolute top-1/4 left-10 hidden lg:block opacity-20 font-mono text-xs text-primary">
-        <div>{'{'}</div>
-        <div className="ml-4">"name": "Nabiha",</div>
-        <div className="ml-4">"passion": "code",</div>
-        <div className="ml-4">"rank": "ICPC 5th"</div>
-        <div>{'}'}</div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${6 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
       </div>
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+      {/* Subtle Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Intro Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-purple-glow/20 border border-primary/30 mb-8 animate-fade-in backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-sm text-primary font-medium">ICPC Asia Topi 2026 — 5th Place</span>
-            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen py-20">
+          
+          {/* Left Content */}
+          <div className="order-2 lg:order-1 text-center lg:text-left">
+            {/* ICPC Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/30 mb-6 animate-fade-in">
+              <Trophy className="w-4 h-4 text-amber-400" />
+              <span className="text-sm font-medium text-amber-300">ICPC Asia Topi 2026 — 5th Place</span>
+            </div>
 
-          {/* Greeting */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 animate-fade-in-up font-light tracking-wide">
-            Hello World! I'm
-          </p>
+            {/* Main Heading */}
+            <div className="mb-6 animate-fade-in-up delay-100">
+              <p className="text-muted-foreground text-lg mb-2 font-light">Hello, I'm</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-none">
+                <span className="text-foreground">Nabiha</span>
+                <br />
+                <span className="gradient-text">Nasir</span>
+              </h1>
+            </div>
 
-          {/* Name with Enhanced Styling */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-black mb-6 animate-fade-in-up delay-100 tracking-tight">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">
-                Nabiha
-              </span>
-            </span>
-            <br />
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-primary via-purple-glow to-purple-soft bg-clip-text text-transparent purple-glow">
-                Nasir
-              </span>
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-            </span>
-          </h1>
+            {/* Animated Role */}
+            <div className="h-10 mb-6 animate-fade-in-up delay-200 overflow-hidden">
+              <div 
+                className="transition-transform duration-500 ease-out"
+                style={{ transform: `translateY(-${currentRole * 40}px)` }}
+              >
+                {roles.map((role, index) => (
+                  <div 
+                    key={index}
+                    className="h-10 flex items-center justify-center lg:justify-start"
+                  >
+                    <span className="text-xl md:text-2xl font-medium text-primary">
+                      {role}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Typing Animation Role */}
-          <div className="h-12 md:h-14 flex items-center justify-center mb-6 animate-fade-in-up delay-200">
-            <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-card/50 border border-border backdrop-blur-sm">
-              <Terminal className="w-5 h-5 text-primary" />
-              <span className="text-lg md:text-xl font-mono">
-                <span className="text-muted-foreground">{">"} </span>
-                <span className="text-primary">{displayText}</span>
-                <span className="animate-pulse text-primary">|</span>
-              </span>
+            {/* University */}
+            <p className="text-muted-foreground mb-8 animate-fade-in-up delay-300">
+              Software Engineering @ <span className="text-foreground font-semibold">GIKI</span>
+              <span className="text-muted-foreground/60 text-sm ml-2">(2024–2028)</span>
+            </p>
+
+            {/* Description */}
+            <p className="text-muted-foreground text-lg max-w-lg mx-auto lg:mx-0 mb-10 animate-fade-in-up delay-400 leading-relaxed">
+              Passionate about <span className="text-foreground">Data Structures</span>, 
+              <span className="text-foreground"> Algorithms</span>, and building 
+              elegant solutions to complex problems.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10 animate-fade-in-up delay-500">
+              <button 
+                onClick={scrollToProjects}
+                className="group glow-button flex items-center gap-2"
+              >
+                View My Work
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a 
+                href="/resume.pdf"
+                download="Nabiha_Nasir_CV.pdf"
+                className="px-6 py-3.5 rounded-xl font-medium border border-border bg-card/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm"
+              >
+                <Download className="w-4 h-4 group-hover:animate-bounce" />
+                Download CV
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 animate-fade-in-up delay-600">
+              <a 
+                href="https://github.com/nabihanasir514" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+              >
+                <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/nabiha-nasir-4a06a2349" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+              >
+                <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a 
+                href="mailto:u2024514@giki.edu.pk" 
+                className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+              >
+                <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
             </div>
           </div>
 
-          {/* University Badge */}
-          <div className="flex items-center justify-center gap-2 mb-8 animate-fade-in-up delay-300">
-            <Code2 className="w-5 h-5 text-purple-soft" />
-            <span className="text-muted-foreground">Software Engineering</span>
-            <span className="text-primary">@</span>
-            <span className="text-purple-soft font-semibold">GIKI</span>
-            <span className="text-muted-foreground text-sm">(2024-2028)</span>
-          </div>
+          {/* Right - Profile Image */}
+          <div className="order-1 lg:order-2 flex justify-center animate-fade-in-up delay-200">
+            <div className="relative">
+              {/* Glow Effect Behind */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-purple-glow/30 to-purple-soft/20 rounded-full blur-3xl scale-110 animate-glow-pulse" />
+              
+              {/* Decorative Ring */}
+              <div className="absolute -inset-4 rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full" />
+              </div>
+              <div className="absolute -inset-8 rounded-full border border-purple-glow/10 animate-[spin_30s_linear_infinite_reverse]">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-purple-glow rounded-full" />
+              </div>
 
-          {/* Description */}
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-in-up delay-400 leading-relaxed">
-            Crafting elegant solutions through <span className="text-foreground font-medium">Data Structures</span>, 
-            <span className="text-foreground font-medium"> Algorithms</span>, and 
-            <span className="text-foreground font-medium"> Object-Oriented Design</span>. 
-            Turning complex problems into clean, efficient code.
-          </p>
+              {/* Main Image Container */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-primary/30 shadow-2xl">
+                <img 
+                  src={profileImage}
+                  alt="Nabiha Nasir"
+                  className="w-full h-full object-cover object-top scale-110"
+                />
+                {/* Subtle Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-fade-in-up delay-500">
-            <button 
-              onClick={scrollToProjects} 
-              className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-purple-glow to-primary bg-[length:200%_100%] animate-shimmer" />
-              <span className="relative flex items-center gap-2">
-                Explore My Work
-                <ArrowDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform" />
-              </span>
-            </button>
-            <a 
-              href="/resume.pdf"
-              download="Nabiha_Nasir_CV.pdf"
-              className="px-8 py-4 rounded-xl font-semibold border-2 border-primary/50 bg-primary/5 hover:bg-primary/15 hover:border-primary transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm"
-            >
-              <Download className="w-5 h-5 group-hover:animate-bounce" />
-              Download CV
-            </a>
-          </div>
+              {/* Floating Badge */}
+              <div className="absolute -bottom-2 -right-2 px-4 py-2 rounded-xl bg-card border border-border shadow-xl animate-float">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium">Open to Opportunities</span>
+                </div>
+              </div>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-4 animate-fade-in-up delay-600">
-            <span className="text-xs text-muted-foreground uppercase tracking-widest mr-2">Connect</span>
-            <div className="w-8 h-px bg-border" />
-            <a href="https://github.com/nabihanasir514" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 group backdrop-blur-sm">
-              <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
-            <a href="https://www.linkedin.com/in/nabiha-nasir-4a06a2349" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 group backdrop-blur-sm">
-              <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
-            <a href="mailto:u2024514@giki.edu.pk" className="p-3 rounded-xl bg-card/50 border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 group backdrop-blur-sm">
-              <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
-            <div className="w-8 h-px bg-border" />
+              {/* Stats Badge */}
+              <div className="absolute -top-2 -left-2 px-4 py-2 rounded-xl bg-card border border-border shadow-xl animate-float" style={{ animationDelay: '-3s' }}>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">5th</div>
+                  <div className="text-xs text-muted-foreground">ICPC Rank</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -173,9 +228,9 @@ const HeroSection = () => {
           onClick={scrollToAbout}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer animate-fade-in delay-700 group"
         >
-          <span className="text-xs font-medium uppercase tracking-widest">Discover More</span>
-          <div className="w-6 h-10 rounded-full border-2 border-current flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
+          <span className="text-xs font-medium uppercase tracking-widest">Scroll</span>
+          <div className="w-5 h-8 rounded-full border-2 border-current flex items-start justify-center p-1.5">
+            <div className="w-1 h-1.5 bg-current rounded-full animate-bounce" />
           </div>
         </button>
       </div>
