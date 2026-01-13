@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code, Lightbulb, Target, Users } from 'lucide-react';
-import profilePhoto from '@/assets/nabiha-profile.jpeg';
+import profilePhoto from '@/assets/nabiha-profile-edited.png';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
