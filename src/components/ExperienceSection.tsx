@@ -12,11 +12,12 @@ const ExperienceSection = () => {
   }, []);
 
   const experiences = [
-    { type: 'education', title: 'BS Software Engineering', organization: 'GIKI - Ghulam Ishaq Khan Institute', period: '2023 - Present', description: 'Currently in second year, studying Data Structures, Algorithms, OOP, and Software Design.', icon: GraduationCap },
-    { type: 'course', title: 'Data Structures & Algorithms', organization: 'Academic Course', period: '2024', description: 'Study of arrays, linked lists, trees, graphs, and algorithm design techniques.', icon: Code },
-    { type: 'course', title: 'Object-Oriented Programming', organization: 'Academic Course', period: '2024', description: 'OOP concepts including encapsulation, inheritance, polymorphism using C++ and Java.', icon: BookOpen },
-    { type: 'achievement', title: 'Web Development Bootcamp', organization: 'Online Certification', period: '2024', description: 'Completed web development training covering HTML, CSS, JavaScript, and React.', icon: Award },
-    { type: 'education', title: 'Higher Secondary Education', organization: 'Intermediate (Pre-Engineering)', period: '2021 - 2023', description: 'Completed intermediate with focus on Mathematics, Physics, and Computer Science.', icon: GraduationCap },
+    { type: 'education', title: 'BS Software Engineering', organization: 'GIKI - Ghulam Ishaq Khan Institute', period: '2024 - 2028', description: 'Currently in second year with strong foundation in DSA, OOP, and currently learning Database Management Systems.', icon: GraduationCap },
+    { type: 'achievement', title: 'ICPC Asia Topi Preliminary', organization: 'ICPC Foundation', period: '2026', description: 'Secured 5th Place in the prestigious ICPC Asia Topi Preliminary Programming Contest.', icon: Award },
+    { type: 'course', title: 'Data Structures & Algorithms', organization: 'Academic Course', period: '2024-2025', description: 'Comprehensive study of arrays, linked lists, trees, graphs, sorting, searching, and algorithm design techniques.', icon: Code },
+    { type: 'course', title: 'Object-Oriented Programming', organization: 'Academic Course', period: '2024', description: 'In-depth OOP concepts including encapsulation, inheritance, polymorphism, and design patterns using C++.', icon: BookOpen },
+    { type: 'education', title: 'FSc Pre-Engineering', organization: 'Fazaia Inter College Kallar Kahar', period: '2021 - 2023', description: 'Completed intermediate education with focus on Mathematics, Physics, and Chemistry. Passed in 2023.', icon: GraduationCap },
+    { type: 'education', title: 'Matriculation (Pre-Medical)', organization: 'Fazaia Inter College Kallar Kahar', period: '2019 - 2021', description: 'Completed matriculation with Biology, Chemistry, and Physics as major subjects.', icon: GraduationCap },
   ];
 
   return (
