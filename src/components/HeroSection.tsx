@@ -106,7 +106,7 @@ const HeroSection = () => {
               </button>
               <a 
                 href="/resume.pdf"
-                download="Nabiha_Nasir_CV.pdf"
+                download="Nabiha_Resume.pdf"
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Download className="w-4 h-4" />
