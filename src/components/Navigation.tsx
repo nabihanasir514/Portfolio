@@ -18,6 +18,7 @@ const Navigation = () => {
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
+    { href: '#certificates', label: 'Certificates' },
     { href: '#experience', label: 'Experience' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -38,17 +39,17 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <a 
             href="#home" 
-            className="text-2xl font-display font-bold gradient-text"
+            className="text-xl font-display font-bold gradient-text"
             onClick={(e) => {
               e.preventDefault();
               handleClick('#home');
             }}
           >
-            Portfolio
+            Nabiha Nasir
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}

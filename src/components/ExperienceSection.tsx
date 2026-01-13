@@ -1,127 +1,49 @@
 import { useEffect, useRef, useState } from 'react';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Code } from 'lucide-react';
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setIsVisible(true); }, { threshold: 0.1 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const experiences = [
-    {
-      type: 'work',
-      title: 'Senior Full Stack Developer',
-      company: 'TechVision Inc.',
-      period: '2022 - Present',
-      description: 'Leading development of enterprise SaaS applications. Architecting scalable solutions and mentoring junior developers.',
-    },
-    {
-      type: 'work',
-      title: 'Full Stack Developer',
-      company: 'Digital Dynamics',
-      period: '2020 - 2022',
-      description: 'Built and maintained multiple client projects using React and Node.js. Implemented CI/CD pipelines and improved deployment processes.',
-    },
-    {
-      type: 'education',
-      title: 'Master of Computer Science',
-      company: 'Stanford University',
-      period: '2018 - 2020',
-      description: 'Specialized in Human-Computer Interaction and Software Engineering. Graduated with honors.',
-    },
-    {
-      type: 'work',
-      title: 'Frontend Developer',
-      company: 'StartupHub',
-      period: '2018 - 2020',
-      description: 'Developed responsive web applications for early-stage startups. Focused on performance optimization and accessibility.',
-    },
-    {
-      type: 'education',
-      title: 'Bachelor of Science in Computer Science',
-      company: 'UC Berkeley',
-      period: '2014 - 2018',
-      description: 'Foundation in algorithms, data structures, and software development. Dean\'s List recipient.',
-    },
+    { type: 'education', title: 'BS Software Engineering', organization: 'GIKI - Ghulam Ishaq Khan Institute', period: '2023 - Present', description: 'Currently in second year, studying Data Structures, Algorithms, OOP, and Software Design.', icon: GraduationCap },
+    { type: 'course', title: 'Data Structures & Algorithms', organization: 'Academic Course', period: '2024', description: 'Study of arrays, linked lists, trees, graphs, and algorithm design techniques.', icon: Code },
+    { type: 'course', title: 'Object-Oriented Programming', organization: 'Academic Course', period: '2024', description: 'OOP concepts including encapsulation, inheritance, polymorphism using C++ and Java.', icon: BookOpen },
+    { type: 'achievement', title: 'Web Development Bootcamp', organization: 'Online Certification', period: '2024', description: 'Completed web development training covering HTML, CSS, JavaScript, and React.', icon: Award },
+    { type: 'education', title: 'Higher Secondary Education', organization: 'Intermediate (Pre-Engineering)', period: '2021 - 2023', description: 'Completed intermediate with focus on Mathematics, Physics, and Computer Science.', icon: GraduationCap },
   ];
 
   return (
-    <section id="experience" ref={sectionRef} className="py-24 md:py-32 relative">
-      {/* Background accents */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className={`text-primary font-medium mb-4 tracking-widest uppercase text-sm ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            My Journey
-          </p>
-          <h2 className={`section-title ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
-            Experience &{' '}
-            <span className="gradient-text">Education</span>
-          </h2>
-          <p className={`text-muted-foreground max-w-2xl mx-auto ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
-            My professional journey and academic background that shaped my skills and expertise.
-          </p>
+    <section id="experience" ref={sectionRef} className="py-24 relative overflow-hidden">
+      <div className="absolute top-1/4 left-0 w-1/4 h-1/2 bg-purple-glow/5 rounded-full blur-3xl" />
+      <div className="container mx-auto px-6 relative z-10">
+        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <span className="text-primary font-medium mb-4 block">My Journey</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Education & <span className="gradient-text">Experience</span></h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">My academic journey and learning milestones in software engineering.</p>
         </div>
-
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Timeline line */}
-          <div className="timeline-line" />
-
+        <div className="relative max-w-3xl mx-auto">
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-purple-glow to-purple-soft" />
           {experiences.map((exp, index) => (
-            <div 
-              key={index}
-              className={`relative flex items-start mb-12 last:mb-0 ${
-                isVisible ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${300 + index * 150}ms` }}
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
-                <div className="timeline-dot" />
-              </div>
-
-              {/* Content */}
-              <div className={`w-full pl-12 md:pl-0 ${
-                index % 2 === 0 
-                  ? 'md:pr-[calc(50%+2rem)] md:text-right' 
-                  : 'md:pl-[calc(50%+2rem)]'
-              }`}>
-                <div className={`glass-card p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 ${
-                  index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
-                } max-w-lg`}>
-                  <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                    <div className={`p-2 rounded-lg bg-primary/10 ${index % 2 === 0 ? 'md:order-2' : ''}`}>
-                      {exp.type === 'work' 
-                        ? <Briefcase className="w-4 h-4 text-primary" />
-                        : <GraduationCap className="w-4 h-4 text-primary" />
-                      }
+            <div key={index} className={`relative flex items-start gap-8 mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: `${index * 150}ms` }}>
+              <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-primary border-4 border-background shadow-lg shadow-primary/50 z-10" />
+              <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                <div className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10 shrink-0"><exp.icon className="w-6 h-6 text-primary" /></div>
+                    <div className="flex-1">
+                      <span className="text-xs text-primary font-medium uppercase tracking-wider">{exp.period}</span>
+                      <h3 className="text-lg font-display font-semibold mt-1 mb-1">{exp.title}</h3>
+                      <p className="text-sm text-purple-soft mb-3">{exp.organization}</p>
+                      <p className="text-sm text-muted-foreground">{exp.description}</p>
                     </div>
-                    <span className="text-sm text-primary font-medium">{exp.period}</span>
                   </div>
-                  <h3 className="text-xl font-display font-semibold mb-1">
-                    {exp.title}
-                  </h3>
-                  <p className="text-primary/80 font-medium mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
                 </div>
               </div>
             </div>
